@@ -21,8 +21,8 @@ jobs:
           echo "Cloning Repo B with authentication..."
           git clone https://$GH_PAT@github.com/singhrakeshy/Repo-B.git
           cd Repo-B
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          git config user.name "singhrakeshy"
+          git config user.email "singhrakeshy1562@gmail.com"
           echo "Repo B cloned successfully!"
 
       - name: Copy All Files to Repo B
