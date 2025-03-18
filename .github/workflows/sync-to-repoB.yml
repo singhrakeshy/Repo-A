@@ -16,7 +16,7 @@ jobs:
 
       - name: Clone Repo B
         run: |
-          git clone https://github.com/singhrakeshy/Repo-B
+          git clone https://$GH_TOKEN@github.com/singhrakeshy/Repo-B.git
           cd repoB
           git config user.name "github-actions"
           git config user.email "actions@github.com"
