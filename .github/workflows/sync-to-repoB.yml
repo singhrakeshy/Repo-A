@@ -1,0 +1,30 @@
+name: Sync Files to Repo B
+
+on:
+  push:
+    branches:
+      - main  # Triggers when changes are pushed to the main branch
+  workflow_dispatch:  # Allows manual trigger from the Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo A
+        uses: actions/checkout@v3
+
+      - name: Clone Repo B
+        run: |
+          git clone https://github.com/singhrakeshy/Repo-B
+          cd repoB
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
+      - name: Copy Specific Files
+        run: |
+          cp -r file1.txt folderA repoB/  # Copy only specific files
+          cd repoB
+          git add .
+          git commit -m "Sync changes from Repo A" || echo "No changes to commit"
+          git push origin main
